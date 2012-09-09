@@ -1,0 +1,15 @@
+{
+  "name": "sanitize-arguments",
+  "description": "Easily check function arguments",
+  "version": "0.0.0",
+  "author": "Jan Buschtöns <buschtoens@gmail.com>",
+  "contributors": [ 
+    { "name": "Jan Buschtöns", "email": "buschtoens@gmail.com" }
+  ],
+  "license": "MIT",
+  "keywords": ["validation", "sanitization", "validate", "sanitize, "arguments"],
+  "repository": "git://github.com/silvinci/node-sanitize-arguments",
+  "main": "index",
+  "engines": { "node": "*" },
+  "scripts": { "prepublish": "npm prune", "test": "make test" }
+}
