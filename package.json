@@ -7,7 +7,7 @@
     { "name": "Jan Buschtöns", "email": "buschtoens@gmail.com" }
   ],
   "license": "MIT",
-  "keywords": ["validation", "sanitization", "validate", "sanitize, "arguments"],
+  "keywords": ["validation", "sanitization", "validate", "sanitize", "arguments"],
   "repository": "git://github.com/silvinci/node-sanitize-arguments",
   "main": "index",
   "engines": { "node": "*" },
