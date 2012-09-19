@@ -7,10 +7,16 @@ Sanitize function arguments the easy way!
 var sanitize = require("sanitize-arguments");
 
 function Person(name, birthdate, size, pets, ability) {
-  sanitize(arguments, [String, Date, Number, Array, Function]);
+  var args = sanitize(arguments, Person, [String, Date, Number, Array, Function]);
   
   // Now we can be sure that all arguments are in the right order
-  this.properties = { name: name, birthdate: birthdate, size: size, pets: pets, ability: ability };
+  this.properties = {
+    name: args.name,
+    birthdate: args.birthdate,
+    size: args.size,
+    pets: args.pets,
+    ability: args.ability
+  };
   
   console.log(this.properties);
 }
@@ -24,9 +30,32 @@ new Person("silvinci", 180, ["dog", "cat"]);
 Usage
 =====
 
-Very simple. The first argument is your `arguments` object.
-The seccond an array of data types showing the desired order.
+There are two ways of using `sanitize`. The example above shows the first (and prefered) one.
+The first argument is your `arguments` object, which contains all supplied values passed to the function.
+The second one is the `Function` itself. The third one is an `Array` of `Types` or `Objects`
+indicating the desired order. It's similiar to Java's `function(String name, Date birthdate, ...)`.
+We just take our "strong types" out of the warehouse and put them into `sanitize`.
 
+When giving these three `arguments` to `sanitize` it will return an object where all the values are
+paired with their correct variable name and undefined values stay undefined, like so:
+```javascript
+{
+  name: "silvinci",
+  birthdate: undefined,
+  size: 180,
+  pets: ["dog", "cat"],
+  ability: undefined
+}
+```
+It *also* effectively changes the `arguments` object, thus altering the `function`'s variables aswell.
+But this doesn't work in every case. First of all: This won't work in strict mode, because the magic link
+between `arguments` and its variables is disabled. You also have to make sure that you *always* apply
+the full count of arguments when calling your function, since only defined variables can be changed
+via `arguments`.
+
+Only when you can be sure, that you're code won't ever run in strict mode and your function *always*
+gets called with the full count of arguments, that may be swapt, then you can use `sanitize` in
+another, even more comfortable way.
 ```javascript
 function test(a, b, c, d, e)
   sanitize(arguments, [String, Date, Number, Array, Function]);
@@ -34,31 +63,9 @@ function test(a, b, c, d, e)
 }
 ```
 
-`sanitize` effectively changes the `arguments` object, since objects are passed as references.
-This means, that the function arguments `(a, b, c, d, e)` are effectively changed, too!
-That works, because they are linked to the `arguments` object. Pretty awesome, huh?
-
-But there's a downside, you'll have to deal with, when using very loose structure. Consider the following.
-
-```javascript
-function test(a, b, c, d, e)
-  sanitize(arguments, [String, Date, Number, Array, Function]);
-  console.log(a, b, c, d, e);
-}
-test(42);
-```
-
-Here we only pass the parameter `c`. But as it turns out, `c` is `undefined`. Why's that?
-Only arguments that were provided when calling the function are linked to the `arguments` object.
-And here we only provide the first argument `a`, so we can't effect `c`.
-
-How can we cope with that? `sanitize` not only changes the `arguments` object, but also returns an object like
-`{ a: undefined, b: undefined, c: 42, d: undefined, e: undefined }`. And here we have our precious `c`.
-
-Using `sanitize` this non-magic way isn't that ... magic. I know. But there are only two cases in which you have to.
-
-1.  Using a very loose argument structure in which every argument is optional.
-2.  "use strict"; Yep. Strict mode disables the link of the `arguments` object and the corresponding arguments.
+Using the magic link the variables are changed and you don't have to use the returned object.
+Please note, that `sanitize` will still return an object: the altered `arguments` so you could
+acces the arguments by `returned[0]` too.
 
 Installation
 ============
@@ -69,12 +76,14 @@ Just grab it with the awesome npm.
 
 Or clone the repository.
 
-    $ git clone git://github.com/silvinci/sanitize-arguments
+    $ git clone git://github.com/silvinci/node-sanitize-arguments
 
 Contributing
 ============
 
 I happily accept pull requests and work on issues!
+
+---
 
 License
 =======
