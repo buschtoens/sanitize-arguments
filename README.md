@@ -1,7 +1,4 @@
-sanitize-arguments
-==================
-
-Sanitize function arguments the easy way!
+![sanitize-arguments — Order arguments with ease!](http://i.imgur.com/SAhDs.png)
 
 ```javascript
 var sanitize = require("sanitize-arguments");
