@@ -24,6 +24,17 @@ new Person("silvinci", 180, ["dog", "cat"]);
 // { name: "silvinci", size: 180, pets: ["dog", "cat"], birthdate: undefined, ability: undefined }
 ```
 
+Installation
+============
+
+Just grab it with the awesome npm.
+
+    $ npm install sanitize-arguments
+
+Or clone the repository.
+
+    $ git clone git://github.com/silvinci/node-sanitize-arguments
+
 Usage
 =====
 
@@ -64,16 +75,14 @@ Using the magic link the variables are changed and you don't have to use the ret
 Please note, that `sanitize` will still return an object: the altered `arguments` so you could
 acces the arguments by `returned[0]` too.
 
-Installation
-============
+Extras
+======
 
-Just grab it with the awesome npm.
-
-    $ npm install sanitize-arguments
-
-Or clone the repository.
-
-    $ git clone git://github.com/silvinci/node-sanitize-arguments
+`sanitize` comes with some extra sugar for you. It exposes the typechecks it uses itself.
+- `typeOf(object)` is a `typeof` like you would expect it to be.
+  For instance `typeOf([])` returns "Array" and not "object", like 'typeof []' does.
+- `nameOf(Function)` returns a function's name. Useful for passed in functions.
+- `argsOf(Function)` returns an array of the expected arguments.
 
 Contributing
 ============
