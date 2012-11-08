@@ -103,6 +103,7 @@ describe("argsOf(fun)", function() {
 	it("should return an array of the expected arguments of function fun or false", function() {
 		argsOf(function test(a, b, c) {}).should.eql(["a", "b", "c"]);
 		argsOf(function (a, b, c) {}).should.eql(["a", "b", "c"]);
+	});
 	it("should return an empty array when the function fun doesn't expect any arguments", function() {
 		argsOf(function test() { return 0; }).should.eql([]);
 		argsOf(function() {}).should.eql([]);
