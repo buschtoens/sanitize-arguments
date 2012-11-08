@@ -1,5 +1,5 @@
 MOCHA_OPTS=
-REPORTER = dot
+REPORTER = spec
 
 check: test
 
