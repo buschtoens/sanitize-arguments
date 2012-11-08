@@ -10,3 +10,4 @@ support/
 test/
 .DS_Store
 coverage.html
+.travis.yml
