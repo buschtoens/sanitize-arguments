@@ -89,6 +89,12 @@ Contributing
 
 I happily accept pull requests and work on issues!
 
+Contributors
+============
+
+- [jbrumwell](https://github.com/jbrumwell)
+
+
 ---
 
 License
