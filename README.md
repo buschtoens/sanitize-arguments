@@ -1,5 +1,7 @@
 ![sanitize-arguments — Order arguments with ease!](http://i.imgur.com/SAhDs.png)
 
+[![Build Status](https://secure.travis-ci.org/silvinci/node-sanitize-arguments.png?branch=master)](https://travis-ci.org/silvinci/node-sanitize-arguments)
+
 ```javascript
 var sanitize = require("sanitize-arguments");
 
