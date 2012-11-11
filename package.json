@@ -9,7 +9,7 @@
   ],
   "license": "MIT",
   "keywords": ["validation", "sanitization", "validate", "sanitize", "arguments"],
-  "repository": "git://github.com/silvinci/node-sanitize-arguments",
+  "repository": "git://github.com/silvinci/sanitize-arguments",
   "main": "index",
   "engines": { "node": "*" },
   "devDependencies": { "mocha": "*", "should": "*" },
