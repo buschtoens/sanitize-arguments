@@ -8,7 +8,7 @@
   "development": {},
   "scripts": [
     "index.js",
-    "./lib/sanitize.js",
-    "./lib/typechecks.js"
+    "/lib/sanitize.js",
+    "/lib/typechecks.js"
   ]
 }
