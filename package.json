@@ -1,7 +1,7 @@
 {
   "name": "sanitize-arguments",
   "description": "Easily check function arguments",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "author": "Jan Buschtöns <buschtoens@gmail.com>",
   "contributors": [ 
     { "name": "Jan Buschtöns", "email": "buschtoens@gmail.com", "url": "https://github.com/silvinci" },
