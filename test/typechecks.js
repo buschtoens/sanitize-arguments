@@ -52,16 +52,13 @@ describe("typeOf(obj)", function() {
 		it("should return 'Object' when obj is an Object", function() {
 			typeOf({}).should.eql("Object");
 		});
-                
 	});
-        
-        describe("Custom Objects", function() {
+	
+	describe("Custom Objects", function() {
 		it("should return 'ClassName' when obj is an instance of function ClassName", function() {
-                    function ClassName() {};
-                    
-                    var foo = new ClassName();                                        
-                    
-		    typeOf(foo).should.eql("ClassName");
+			function ClassName() {};
+			var foo = new ClassName();
+			typeOf(foo).should.eql("ClassName");
 		});
 	});
 	
