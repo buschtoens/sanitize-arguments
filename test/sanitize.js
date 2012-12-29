@@ -47,7 +47,7 @@ describe("Sanitize", function() {
 						return params;
 					}
 				, params;
-			   
+			
 			params = foo("test");
 			
 			assert(params[0] === "test");
@@ -115,7 +115,7 @@ describe("Sanitize", function() {
 						return params;
 					}
 				, params;
-			   
+			
 			params = foo("test");
 			
 			assert(params.a === "test");
