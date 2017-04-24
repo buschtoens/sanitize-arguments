@@ -12,6 +12,6 @@
   "repository": "git://github.com/silvinci/sanitize-arguments",
   "main": "index",
   "engines": { "node": "*" },
-  "devDependencies": { "mocha": "*", "should": "*" },
+  "devDependencies": { "mocha": ">=3.3.0", "should": "*" },
   "scripts": { "prepublish": "npm prune", "test": "make test" }
 }
